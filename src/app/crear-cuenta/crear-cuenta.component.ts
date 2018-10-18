@@ -33,13 +33,13 @@ export class CrearCuentaComponent implements OnInit {
 			password: this.formulario.user.password
 		}
 	};
-  	this.servicioUsuarios
+  	this.servicioUsuarios.
   		iniciarSesion(autenticacion).
-  		subscribe(respuestaAuth=>{},errorAuth=>{
-  			localStorage.setItem("sessionToken",respuestaAuth.jwt);
-  			this.router.navigate(['/articulos']);
-  			alert("Usuario creado, bienvenido");
-  		},errorAuth=>{
+  		subscribe(respuestaAuth=>{
+        localStorage.setItem("sessionToken",respuestaAuth.jwt);
+        this.router.navigate(['/articulos']);
+        alert("Usuario creado, bienvenido");
+      },errorAuth=>{
   			alert("fallo la autenticacion");
   		});
 	},error=>{

@@ -7,8 +7,13 @@
 		<th>Eliminar</th>
 	</thead>
 	<tbody>
-		<tr>
-			<td>Ejemplo</td>
+		<tr *ngFor="let articulo of articulos">
+			<td>
+				<a [routerLink]="
+				['/articulo',articulo.id]">
+					{{articulo.titulo}}	
+				</a>
+			</td>
 			<td><button class="btn btn-warning">Editar</button></td>
 			<td><button class="btn btn-danger">Eliminar</button></td>
 		</tr>
